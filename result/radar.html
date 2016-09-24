@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Radar Chart</title>
+		<script src="Chart.js"></script>
+		<meta charset='utf-8' />
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width:30%">
+		<h1>商品评论情感分析雷达图</h1>
+		<p>2015年为真实计算数据，2016年是为了更美观虚构的</p>
+			<canvas id="canvas" height="450" width="450"></canvas>
+		</div>
+	<script>
+	var radarChartData = {
+		labels: ["质量", "舒适度", "物流", "款式", "价格", "服务", "整体感受"],
+		datasets: [
+			{
+				label: "2015年",
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+				pointStrokeColor: "#fff",
+				pointHighlightFill: "#fff",
+				pointHighlightStroke: "rgba(220,220,220,1)",
+				data: [4.5726447,4.6256037,4.0823884,4.50543,4.0676155,4.385,4.7009783]
+			}
+			,
+			{
+				label: "2016年",
+				fillColor: "rgba(151,187,205,0.2)",
+				strokeColor: "rgba(151,187,205,1)",
+				pointColor: "rgba(151,187,205,1)",
+				pointStrokeColor: "#fff",
+				pointHighlightFill: "#fff",
+				pointHighlightStroke: "rgba(151,187,205,1)",
+				data: [4,3,4.2,3.5,2,5,2.6]
+			}
+		]
+	};
+
+	window.onload = function(){
+		window.myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Radar(radarChartData, {
+			responsive: true
+		});
+	}
+
+	</script>
+	</body>
+</html>
